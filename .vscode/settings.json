@@ -1,7 +1,7 @@
 {
     "pythonTestExplorer.testFramework": "unittest",
     "testExplorer.codeLens": false,
-    "python.pythonPath": "/home/steets/.local/share/virtualenvs/adventure-WNPgpuSp/bin/python",
+    "python.pythonPath": "C:\\Users\\Cursus\\.virtualenvs\\adventure-fiXREaAV\\Scripts\\python.exe",
     "python.testing.unittestEnabled": true,
     "python.testing.unittestArgs": [
         "-v",
