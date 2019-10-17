@@ -41,35 +41,39 @@ class Game:
         return self.location == self.target
 
     def move(self, destination):
-        if (destination in self.locations) and (destination in self.location.doors):
-            self.location = self.locations[destination]
+        new_location = self.find_location(destination)
+        if new_location == self.location:
+            raise KeyError("Daar ben je al.")
+        elif new_location and self.location.is_accessible(destination):
+            self.location = new_location
         else:
             raise KeyError(
                 "%s is vanuit %s niet te bereiken" % (destination, self.location)
             )
 
     def get(self, item):
-        if item in self.location.items:
-            self.items.append(self.location.items[item])
-            del self.location.items[item]
-        else:
-            raise KeyError("Er is geen %s in %s" % (item, self.location))
+        item = self.location.get(item)
+        if item:
+            self.items[item.name] = item
 
     def drop(self, item):
         if item in self.items:
-            self.location.items.append(self.items[item])
-            del self.items[item]
+            item = self.items.pop(item)
+            self.location.drop(item)
         else:
-            raise KeyError("Er is geen %s in %s" % (item, self.location))
+            raise KeyError("Je hebt geen %s" % item)
 
     def describe(self, key):
-        description = ""
-        if key in self.locations:
-            location = self.locations[key]
+        description = 'Een "%s" kan je hier niet zien.' % key
+        if key == self.location.name:
+            location = self.location
             description = location.description
             if len(location.items) > 0:
                 items = [str(item) for item in location.items]
                 description += "\nEr liggen hier: %s" % ", ".join(items)
+            if len(location.exits) > 0:
+                exits = [str(out) for out in location.exits]
+                description += "\nJe kunt naar: %s" % ", ".join(exits)
         elif key in self.location.items:
             description = self.location.items[key].description
         elif key in self.items:

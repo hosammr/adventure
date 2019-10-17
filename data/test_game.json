@@ -6,7 +6,7 @@
         {
             "name": "woonkamer",
             "description": "een gezellige ruimte",
-            "doors": ["hal"],
+            "exits": ["hal"],
             "items": [{
                 "name": "sleutel",
                 "description": "om een slot mee open te maken"
@@ -15,7 +15,7 @@
         {
             "name": "keuken",
             "description": "een ruimte om te koken en te eten",
-            "doors": ["hal"],
+            "exits": ["hal"],
             "items": [{
                 "name": "tafel",
                 "description": "om aan te eten"
@@ -23,8 +23,8 @@
         },
         {
             "name": "hal",
-            "description": "een ruimte die andere ruimtes met elkaar vebindt",
-            "doors": ["keuken", "woonkamer"],
+            "description": "een ruimte die andere ruimtes met elkaar verbindt",
+            "exits": ["keuken", "woonkamer"],
             "items": []
         }
     ],

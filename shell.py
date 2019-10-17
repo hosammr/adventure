@@ -25,9 +25,14 @@ class Shell:
             elif cmd[0] == "leg":
                 self.game.drop(cmd[1])
             elif cmd[0] == "bekijk":
-                print(self.game.describe(cmd[1]))
+                try:
+                    print(self.game.describe(cmd[1]))
+                except IndexError:
+                    print(self.game.describe(str(self.game.location)))
             else:
                 print('Het commando "%s" wordt niet ondersteund' % cmd[0])
+        except IndexError:
+            print("Ongeldig commando.")
         except KeyError as e:
             print(e)
 
