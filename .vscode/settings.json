@@ -1,7 +1,7 @@
 {
     "pythonTestExplorer.testFramework": "unittest",
     "testExplorer.codeLens": false,
-    "python.pythonPath": "C:\\Users\\Cursus\\.virtualenvs\\adventure-fiXREaAV\\Scripts\\python.exe",
+    "python.pythonPath": "C:\\Users\\hosam\\.virtualenvs\\koe-QJg6V3hK\\Scripts\\python.exe",
     "python.testing.unittestEnabled": true,
     "python.testing.unittestArgs": [
         "-v",
